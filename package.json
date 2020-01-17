@@ -1,0 +1,30 @@
+{
+  "name": "how-long-until-the-end-of",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "author": {
+    "name": "chan_gami",
+    "url": "https://changami.com"
+  },
+  "repository": {
+    "url": "git@github.com:changami/how-long-until-the-end-of.git"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv public"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.0.0",
+    "@rollup/plugin-node-resolve": "^6.0.0",
+    "rollup": "^1.20.0",
+    "rollup-plugin-livereload": "^1.0.0",
+    "rollup-plugin-svelte": "^5.0.3",
+    "rollup-plugin-terser": "^5.1.2",
+    "svelte": "^3.0.0"
+  },
+  "dependencies": {
+    "sirv-cli": "^0.4.4"
+  }
+}
