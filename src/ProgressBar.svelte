@@ -17,6 +17,7 @@
     to the end of {accessedTime.getFullYear()}.
   </p>
   <progress value={$progress}></progress>
+  <p>It is currently <b>{calcPercentageForOneDay(currentProgressRate)}</b> in one day.</p>
 </div>
 
 <script>
@@ -49,5 +50,22 @@
     currentTime = new Date();
     currentProgressRate = calcProgressRate(startTime, endTime, currentTime);
     progress.set(currentProgressRate.toFixed(7));
+  }
+
+  function calcPercentageForOneDay(percentageRate) {
+    if (!percentageRate) {
+      return;
+    }
+
+    const fixedPercent = percentageRate.toFixed(7);
+    let secondsForOneDay = 86400 * fixedPercent;
+
+    const hours = Math.floor(secondsForOneDay / 3600);
+    secondsForOneDay = secondsForOneDay - hours * 3600;
+    const minutes = Math.floor(secondsForOneDay / 60);
+    secondsForOneDay = secondsForOneDay - minutes * 60;
+    const seconds = Math.floor(secondsForOneDay);
+
+    return `${('0' + hours).slice(-2)}:${('0' + minutes).slice(-2)}:${('0' + seconds).slice(-2)}`;
   }
 </script>
